@@ -43,5 +43,9 @@ public class Player_Script : MonoBehaviour
             Destroy(collision.gameObject);
             Button.SetActive(true);
         }
+        if (collision.gameObject.tag == "Trigger_Zone_Left")
+        {
+            Debug.Log("move camera");
+        }
     }
 }
