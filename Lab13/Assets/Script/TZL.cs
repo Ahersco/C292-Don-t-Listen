@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Trigger_Zone : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Trigger_Zone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("move camera");
+        int x = 1;
+        SceneManager.LoadScene("Level" + (x + 1));
     }
 }

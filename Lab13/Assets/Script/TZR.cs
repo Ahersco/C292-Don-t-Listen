@@ -1,8 +1,7 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class Try_Again : MonoBehaviour
+public class TZR : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,9 +12,12 @@ public class Try_Again : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Level1");
-        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int x = 1;
+        SceneManager.LoadScene(("Level" + (x - 1)));
     }
 }
