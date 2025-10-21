@@ -967,6 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf876e287f147c409d7d02466da504d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: Level0
 --- !u!1 &1070638251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d33dfbe44a4e843a81aa88cdf2839e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousScene: Level2
 --- !u!61 &1626180226
 BoxCollider2D:
   m_ObjectHideFlags: 0

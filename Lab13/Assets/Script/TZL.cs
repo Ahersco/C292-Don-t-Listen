@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Trigger_Zone : MonoBehaviour
 {
+    [SerializeField] String previousScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +19,6 @@ public class Trigger_Zone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int x = 1;
-        SceneManager.LoadScene("Level" + (x + 1));
+        SceneManager.LoadScene(previousScene);
     }
 }

@@ -7,6 +7,7 @@ public class Player_Script : MonoBehaviour
     [SerializeField] float speed2;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Button;
+    [SerializeField] GameObject Platform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,6 +47,11 @@ public class Player_Script : MonoBehaviour
         if (collision.gameObject.tag == "Trigger_Zone_Left")
         {
             Debug.Log("move camera");
+        }
+        if (collision.gameObject.tag == "Platform")
+        {
+            Debug.Log("works");
+            Platform.GetComponent<platform_script>().isMoving = true;
         }
     }
 }
