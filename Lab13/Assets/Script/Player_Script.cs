@@ -8,6 +8,8 @@ public class Player_Script : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject Button;
     [SerializeField] GameObject Platform;
+    [SerializeField] AudioSource Jump;
+    [SerializeField] AudioSource Death;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,7 @@ public class Player_Script : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
+                Jump.Play();
                 rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
             }
         }

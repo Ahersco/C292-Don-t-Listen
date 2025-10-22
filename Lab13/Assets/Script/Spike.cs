@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Spike : MonoBehaviour
 {
+    [SerializeField] AudioSource Death;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,5 +15,13 @@ public class Spike : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Death.Play();
+        }
     }
 }
