@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Script : MonoBehaviour
 {
     [SerializeField] float JumpForce;
     [SerializeField] float speed2;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] GameObject Button;
     [SerializeField] GameObject Platform;
     [SerializeField] AudioSource Jump;
     [SerializeField] AudioSource Death;
@@ -20,17 +20,14 @@ public class Player_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Button.activeSelf == false)
-        {
-            float x = Input.GetAxis("Horizontal");
-            Vector2 moveVector = new Vector2(x, 0);
-            transform.Translate(moveVector * speed2 * Time.deltaTime);
+        float x = Input.GetAxis("Horizontal");
+        Vector2 moveVector = new Vector2(x, 0);
+        transform.Translate(moveVector * speed2 * Time.deltaTime);
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                Jump.Play();
-                rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
-            }
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump.Play();
+            rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
         
     }
@@ -39,13 +36,11 @@ public class Player_Script : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
-            Button.SetActive(true);
+            SceneManager.LoadScene("Game Over");
         }
         if (collision.gameObject.tag == "Finish")
         {
-            Destroy(collision.gameObject);
-            Button.SetActive(true);
+            SceneManager.LoadScene("Game Over");
         }
         if (collision.gameObject.tag == "Trigger_Zone_Left")
         {

@@ -19,6 +19,9 @@ public class Trigger_Zone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(previousScene);
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(previousScene);
+        }
     }
 }

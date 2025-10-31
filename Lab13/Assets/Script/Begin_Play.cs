@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TZR : MonoBehaviour
+public class Start_Game : MonoBehaviour
 {
-    [SerializeField] String nextScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,15 +12,9 @@ public class TZR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(nextScene);
+            SceneManager.LoadScene("Tutorial");
         }
     }
-
 }
