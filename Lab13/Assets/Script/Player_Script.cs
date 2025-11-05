@@ -7,9 +7,12 @@ public class Player_Script : MonoBehaviour
     [SerializeField] float JumpForce;
     [SerializeField] float speed2;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] GameObject Platform;
     [SerializeField] AudioSource Jump;
-    [SerializeField] AudioSource Death;
+    [SerializeField] float groundCheckRadius;
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] GameObject Platform;
+    private bool isGrounded;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,16 +23,25 @@ public class Player_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckGrounded();
+
+
         float x = Input.GetAxis("Horizontal");
         Vector2 moveVector = new Vector2(x, 0);
         transform.Translate(moveVector * speed2 * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump.Play();
             rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+            
         }
         
+    }
+
+    void CheckGrounded()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
