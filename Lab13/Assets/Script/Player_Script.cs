@@ -25,10 +25,18 @@ public class Player_Script : MonoBehaviour
     {
         CheckGrounded();
 
-
-        float x = Input.GetAxis("Horizontal");
-        Vector2 moveVector = new Vector2(x, 0);
-        transform.Translate(moveVector * speed2 * Time.deltaTime);
+        if (SceneManager.GetActiveScene().name == "Level6")
+        {
+            float y = Input.GetAxis("Horizontal");
+            Vector2 movevector = new Vector2(-y, 0);
+            transform.Translate(movevector * speed2 * Time.deltaTime);
+        }
+        else
+        {
+            float x = Input.GetAxis("Horizontal");
+            Vector2 moveVector = new Vector2(x, 0);
+            transform.Translate(moveVector * speed2 * Time.deltaTime);
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {

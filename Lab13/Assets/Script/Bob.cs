@@ -6,7 +6,6 @@ public class Bob : MonoBehaviour
     [SerializeField] float JumpForce;
     [SerializeField] float speed2;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] float groundCheckDistance = 0.2f;
     [SerializeField] float groundCheckRadius;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
