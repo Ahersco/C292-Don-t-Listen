@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Trigger_Zone_Left
   - Platform
+  - GameManager
   layers:
   - Default
   - TransparentFX

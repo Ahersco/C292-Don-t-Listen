@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 
@@ -7,10 +9,22 @@ public class Try_Again : MonoBehaviour
 
     private Game_Manager gm;   
     public static bool beat6 = false;
+
+    void Awake()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gm = FindObjectOfType<Game_Manager>();
         gm.StopTimer(); 
     }
 

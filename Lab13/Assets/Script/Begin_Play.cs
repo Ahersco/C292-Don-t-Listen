@@ -3,6 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class Start_Game : MonoBehaviour
 {
+    void Awake()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

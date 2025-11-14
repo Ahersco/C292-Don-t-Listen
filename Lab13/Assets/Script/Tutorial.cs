@@ -7,7 +7,7 @@ public class Tutorial : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gm = FindObjectOfType<Game_Manager>();
+        
     }
 
     // Update is called once per frame
@@ -16,7 +16,6 @@ public class Tutorial : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("level1");
-            gm.StartTimer();
         }
     }
 }

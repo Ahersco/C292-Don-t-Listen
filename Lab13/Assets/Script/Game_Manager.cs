@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Game_Manager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Game_Manager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartTimer();
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class Game_Manager : MonoBehaviour
     }
     private void UpdateTimerUI()
     {
-        timerText.text = $"Time: {timer: F2}";
+        timerText.text = $"Time: {Math.Floor(timer * 100)/100}";
     }
 
     public void AddDeath()
