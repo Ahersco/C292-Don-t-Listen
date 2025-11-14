@@ -13,6 +13,7 @@ public class Player_Script : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] GameObject Platform;
     private bool isGrounded;
+    public static bool beat6 = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,7 +57,19 @@ public class Player_Script : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("Game Over");
+            Game_Manager gm = FindObjectOfType<Game_Manager>();
+            if (gm != null)
+            {
+                gm.AddDeath();
+            }
+            if (beat6 == true)
+            {
+                SceneManager.LoadScene("Level1 w Skip");
+            }
+            else
+            {
+                SceneManager.LoadScene("Level1");
+            }
         }
         if (collision.gameObject.tag == "Finish")
         {

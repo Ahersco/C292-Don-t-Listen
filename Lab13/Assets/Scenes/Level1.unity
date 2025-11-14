@@ -919,11 +919,11 @@ PrefabInstance:
     - target: {fileID: 2372248185948256112, guid: 7ddc843f6700cbd4f91b0950eb2eeb45, type: 3}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 67327946}
+      objectReference: {fileID: 1804011336}
     - target: {fileID: 2372248185948256112, guid: 7ddc843f6700cbd4f91b0950eb2eeb45, type: 3}
       propertyPath: deathCounterText
       value: 
-      objectReference: {fileID: 1804011336}
+      objectReference: {fileID: 67327946}
     - target: {fileID: 8613769946349562718, guid: 7ddc843f6700cbd4f91b0950eb2eeb45, type: 3}
       propertyPath: m_Name
       value: Game_Manager
@@ -1142,6 +1142,14 @@ PrefabInstance:
     - target: {fileID: 5780628722639422128, guid: 4bdc03a1837e82943afc119ff63f813b, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291367321803483878, guid: 4bdc03a1837e82943afc119ff63f813b, type: 3}
+      propertyPath: m_Name
+      value: Death Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217959842503553684, guid: 4bdc03a1837e82943afc119ff63f813b, type: 3}
+      propertyPath: m_Name
+      value: Timer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

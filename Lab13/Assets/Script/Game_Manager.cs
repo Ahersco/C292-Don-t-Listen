@@ -1,22 +1,35 @@
-using UnityEngine;
-using TMPro;
 using System;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] TextMeshProUGUI deathCounterText;
+    private TextMeshProUGUI timerText;
+    private TextMeshProUGUI deathCounterText;
     private float timer = 0f;
     private int deaths = 0;
     private bool isGameRunning = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+
+        if (objs.Length > 1)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
+        FindUIElements();
         StartTimer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isGameRunning)
@@ -25,16 +38,62 @@ public class Game_Manager : MonoBehaviour
             UpdateTimerUI();
         }
     }
+
+    // Find UI elements in the current scene
+    private void FindUIElements()
+    {
+        GameObject timerObject = GameObject.Find("Timer");
+        GameObject deathObject = GameObject.Find("Death Counter");
+
+        if (timerObject != null)
+        {
+            timerText = timerObject.GetComponent<TextMeshProUGUI>();
+        }
+
+        if (deathObject != null)
+        {
+            deathCounterText = deathObject.GetComponent<TextMeshProUGUI>();
+        }
+
+        if (timerText != null && deathCounterText != null)
+        {
+            UpdateTimerUI();
+            deathCounterText.text = $"Deaths: {deaths}";
+        }
+    }
+
+    void OnEnable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        FindUIElements();
+    }
+
     private void UpdateTimerUI()
     {
-        timerText.text = $"Time: {Math.Floor(timer * 100)/100}";
+        if (timerText != null)
+        {
+            timerText.text = $"Time: {Math.Floor(timer * 100) / 100}";
+        }
     }
 
     public void AddDeath()
     {
         deaths++;
-        deathCounterText.text = $"Deaths: {deaths}";
+        if (deathCounterText != null)
+        {
+            deathCounterText.text = $"Deaths: {deaths}";
+        }
     }
+
     public void StopTimer()
     {
         isGameRunning = false;
@@ -49,8 +108,11 @@ public class Game_Manager : MonoBehaviour
     {
         timer = 0f;
         deaths = 0;
-        isGameRunning = true;
+        isGameRunning = false;
         UpdateTimerUI();
-        deathCounterText.text = $"Deaths: {deaths}";
+        if (deathCounterText != null)
+        {
+            deathCounterText.text = $"Deaths: {deaths}";
+        }
     }
 }

@@ -16,7 +16,7 @@ public class TZR : MonoBehaviour
     {
         if (nextScene == "Level6")
         {
-            Try_Again.beat6 = true;
+            Player_Script.beat6 = true;
         }
     }
 

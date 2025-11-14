@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 125863242434321225}
   - component: {fileID: 8823307404284218136}
   - component: {fileID: 6960162974400897489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fake_Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}

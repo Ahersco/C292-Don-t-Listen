@@ -6,44 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class Try_Again : MonoBehaviour
 {
-
-    private Game_Manager gm;   
+    private Game_Manager gm;
     public static bool beat6 = false;
 
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        gm = FindObjectOfType<Game_Manager>();
 
-        if (objs.Length > 1)
+        // Safety check
+        if (gm == null)
         {
-            Destroy(this.gameObject);
+            Debug.LogError("Game_Manager not found in scene!");
         }
-
-        DontDestroyOnLoad(this.gameObject);
     }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        gm.StopTimer(); 
+            gm.StopTimer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+
             if (beat6 == true)
             {
                 SceneManager.LoadScene("Level1 w Skip");
-                gm.AddDeath();
-                gm.StartTimer();
             }
             else
             {
                 SceneManager.LoadScene("Level1");
-                gm.AddDeath();
-                gm.StartTimer();
             }
         }
 
@@ -51,6 +44,5 @@ public class Try_Again : MonoBehaviour
         {
             Debug.Log("can go to skip");
         }
-
     }
 }
