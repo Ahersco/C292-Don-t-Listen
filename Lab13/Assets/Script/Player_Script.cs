@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class Player_Script : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player_Script : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] GameObject Platform;
     private bool isGrounded;
+    private bool isHidden;
     public static bool beat6 = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,7 +41,7 @@ public class Player_Script : MonoBehaviour
             transform.Translate(moveVector * speed2 * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && (isGrounded) || (isHidden))
         {
             Jump.Play();
             rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
