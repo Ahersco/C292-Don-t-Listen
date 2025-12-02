@@ -384,7 +384,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -476,8 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9678abf0ab30e144a848f3b19cb95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed2: 1
-  speed: 0
+  speedy: 0.75
+  speedx: 0
   x: 0
   isMoving: 1
   Xaxis: 0
@@ -495,12 +495,16 @@ PrefabInstance:
       value: 6.76541
       objectReference: {fileID: 0}
     - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.040439
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.4805
       objectReference: {fileID: 0}
     - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.761625
+      value: -10.7147
       objectReference: {fileID: 0}
     - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_LocalPosition.z
@@ -753,6 +757,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6794226834227931990, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7115026231340575459, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_Name
       value: Floor (2)
@@ -775,12 +783,16 @@ PrefabInstance:
       value: 46.002586
       objectReference: {fileID: 0}
     - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2004921
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1378
       objectReference: {fileID: 0}
     - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.761625
+      value: -10.7947
       objectReference: {fileID: 0}
     - target: {fileID: 2175786665661861168, guid: d2d0d6aca80e97e40987be0571e72206, type: 3}
       propertyPath: m_LocalPosition.z
@@ -843,8 +855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9678abf0ab30e144a848f3b19cb95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed2: 0
-  speed: 0.75
+  speedy: 0
+  speedx: 0
   x: -13
   isMoving: 1
   Xaxis: 1

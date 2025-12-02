@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class platform_script : MonoBehaviour
 {
-    [SerializeField] float speed2;
-    [SerializeField] float speed;
+    [SerializeField] float speedy;
+    [SerializeField] float speedx;
     [SerializeField] float x;
     public bool isMoving;
     [SerializeField] bool Xaxis;
@@ -23,22 +23,22 @@ public class platform_script : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
-                speed2 = speed2 * 4;
+                speedy = speedy * 4;
             }
             else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
             {
-                speed2 = speed2 / 4;
+                speedy = speedy / 4;
             }
         }
         if (isMoving == true)
         {
             if (Xaxis == true)
             {
-                transform.Translate(Vector2.left * speed * Time.deltaTime);
+                transform.Translate(Vector2.left * speedx * Time.deltaTime);
             }
             if (Yaxis == true)
             {
-                transform.Translate(Vector2.down * speed2 * Time.deltaTime);
+                transform.Translate(Vector2.down * speedy * Time.deltaTime);
             }
         }
         if (transform.position.x <= x && Xaxis == true)
