@@ -28,7 +28,7 @@ public class Player_Script : MonoBehaviour
     {
         CheckGrounded();
 
-        if (SceneManager.GetActiveScene().name == "Level6")
+        if (SceneManager.GetActiveScene().name == "Level6" || SceneManager.GetActiveScene().name == "Level9")
         {
             float y = Input.GetAxis("Horizontal");
             Vector2 movevector = new Vector2(-y, 0);
