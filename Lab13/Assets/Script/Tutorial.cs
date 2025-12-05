@@ -15,6 +15,11 @@ public class Tutorial : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("level1");
+            Game_Manager gm = FindObjectOfType<Game_Manager>();
+            if (gm != null)
+            {
+                gm.StartTimer();
+            }
         }
     }
 }

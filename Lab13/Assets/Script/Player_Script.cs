@@ -21,6 +21,15 @@ public class Player_Script : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if (SceneManager.GetActiveScene().name == "Level9")
+        {
+            Game_Manager gm = FindObjectOfType<Game_Manager>();
+            if (gm != null)
+            {
+                gm.StartTimer();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +55,15 @@ public class Player_Script : MonoBehaviour
             Jump.Play();
             rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
             
+        }
+
+        if (SceneManager.GetActiveScene().name == "Finish")
+        {
+            Game_Manager gm = FindObjectOfType<Game_Manager>();
+            if (gm != null)
+            {
+                gm.StopTimer();
+            }
         }
         
     }
@@ -75,7 +93,11 @@ public class Player_Script : MonoBehaviour
         }
         if (collision.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene("Game Over");
+            Game_Manager gm = FindObjectOfType<Game_Manager>();
+
+            SceneManager.LoadScene("Main Menu");
+            gm.ResetGame();
+            beat6 = false;
         }
         if (collision.gameObject.tag == "Trigger_Zone_Left")
         {
