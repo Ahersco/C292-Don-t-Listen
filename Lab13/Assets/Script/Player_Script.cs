@@ -99,14 +99,17 @@ public class Player_Script : MonoBehaviour
             gm.ResetGame();
             beat6 = false;
         }
-        if (collision.gameObject.tag == "Trigger_Zone_Left")
-        {
-            Debug.Log("move camera");
-        }
         if (collision.gameObject.tag == "Platform")
         {
             Debug.Log("works");
             Platform.GetComponent<platform_script>().isMoving = true;
         }
+        if (collision.gameObject.tag == "Button")
+        {
+            Platform.SetActive(true);
+            Destroy(collision.gameObject);
+        }
+
+
     }
 }

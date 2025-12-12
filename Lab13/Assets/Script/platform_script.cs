@@ -6,6 +6,7 @@ public class platform_script : MonoBehaviour
     [SerializeField] float speed2;
     [SerializeField] float speed;
     [SerializeField] float x;
+    [SerializeField] float y;
     public bool isMoving;
     [SerializeField] bool Xaxis;
     [SerializeField] bool Yaxis;
@@ -32,6 +33,8 @@ public class platform_script : MonoBehaviour
         }
         if (isMoving == true)
         {
+            Debug.Log("moving");
+
             if (Xaxis == true)
             {
                 transform.Translate(Vector2.left * speed * Time.deltaTime);
@@ -42,6 +45,11 @@ public class platform_script : MonoBehaviour
             }
         }
         if (transform.position.x <= x && Xaxis == true)
+        {
+            isMoving = false;
+        }
+
+        if (transform.position.y <= y && Yaxis == true)
         {
             isMoving = false;
         }

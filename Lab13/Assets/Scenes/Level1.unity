@@ -301,6 +301,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6973302193466281644, guid: 44badb9688356b744a626a890060c74a, type: 3}
+      propertyPath: speed2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973302193466281644, guid: 44badb9688356b744a626a890060c74a, type: 3}
+      propertyPath: JumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973302193466281644, guid: 44badb9688356b744a626a890060c74a, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -1231,6 +1239,10 @@ PrefabInstance:
     - target: {fileID: 5448655194391354412, guid: 161e0bd8a128d7d469b27d3196c34bc9, type: 3}
       propertyPath: m_Name
       value: Triangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872305395114361179, guid: 161e0bd8a128d7d469b27d3196c34bc9, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8257685453120166458, guid: 161e0bd8a128d7d469b27d3196c34bc9, type: 3}
       propertyPath: Death

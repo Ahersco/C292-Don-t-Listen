@@ -8,6 +8,7 @@ TagManager:
   - Trigger_Zone_Left
   - Platform
   - GameManager
+  - Button
   layers:
   - Default
   - TransparentFX
